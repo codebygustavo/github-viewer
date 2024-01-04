@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="src/markdown.css">
+    <link rel="stylesheet" href="src/style.css">
+
+    <title>GitHub Users Viewer</title>
+</head>
+
+<body>
+
+    <!-- erro -->
+
+    <div class="message-container" id="message-container">
+    </div>
+
+    <header>
+        <h1>Busque por usuários do Github</h1>
+        <p>Procure pelo nome de usuários do GitHub, pela sua API</p>
+    </header>
+
+    <main>
+        <div class="form-control">
+            <label for="search-for-user">Buscar um usuário...</label>
+            <input type="text" name="search-for-user" id="user-search" placeholder="Buscar um usuário...">
+            <input type="button" id="search-button" value="Buscar">
+        </div>
+
+        <div class="content">
+            <div class="user-area" id="user-area">
+
+                <!-- card do usuario -->
+
+            </div>
+
+            <div class="container">
+                <div class="read-me-area markdown-body" id="read-me-area">
+
+                    <!-- area do readme.dm -->
+
+                </div>
+
+                <div class="repositories-area" id="repositories-area">
+
+                    <!-- area dos projetos -->
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Todos Direitos reservados a <a href="github.com/codebygustavo">Gustavo Couto</a> 2024 <sup> &copy;</sup></p>
+    </footer>
+
+    <noscript>Por favor, ative o JavaScript</noscript>
+    <script src="https://cdn.jsdelivr.net/npm/marked@2.1.3/marked.min.js"></script>
+    <script src="index.js" defer></script>
+</body>
+
+</html>

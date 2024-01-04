@@ -1,0 +1,300 @@
+:root {
+    --background: #161b22;
+    --card-background: #12171e;
+    --other-background: #21262d;
+    --text-title: #b1bac4;
+    --text-body: #b1bac4;
+    --error: #ff5070;
+    --sucess: #6aab41;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+
+    @media screen and (max-widht: 1080px) {
+        font-size: 93.75%;
+    }
+
+    @media screen and (max-widht: 720px) {
+        font-size: 87.5%;
+    }
+}
+
+body,
+input,
+textarea,
+button {
+    background: var(--background);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+    font-weight: 600;
+}
+
+.message-control {
+    position: absolute;
+    width: fit-content;
+    padding: 1rem 1.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.25rem;
+    z-index: 1;
+    text-align: center;
+}
+
+.await-control {
+    background-color: var(--card-background);
+    color: #fff;
+}
+
+.error-control {
+    background-color: var(--error);
+    color: #fff;
+}
+
+.sucess-control {
+    background-color: var(--sucess);
+    color: #fff;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+header {
+    max-width: 1200px;
+    padding: 0 1.25rem;
+    margin: 2rem auto 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: var(--text-title);
+}
+
+header p {
+    font-size: 1rem;
+    color: var(--text-body);
+}
+
+.form-control {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.form-control label {
+    display: none;
+}
+
+.form-control input[type=text],
+.form-control input[type=button] {
+    padding: 0.45rem;
+    border: 1px solid var(--other-background);
+    border-radius: 0.25rem;
+    background: var(--other-background);
+    color: var(--text-body);
+    transition: filter 0.2s;
+}
+
+.form-control input[type=text] {
+    width: 100%;
+    max-width: 300px;
+    outline: none;
+}
+
+.form-control input[type=text]::placeholder {
+    color: var(--text-body);
+}
+
+.form-control input[type=text]:hover,
+.form-control input[type=button]:hover {
+    filter: brightness(0.8)
+}
+
+.content {
+    margin-top: 1.75rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.user-info {
+    gap: 1.25rem;
+    margin: 1rem auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-info .image-url img {
+    border-radius: 1.25rem;
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+}
+
+.user-info .user-details {
+    text-align: center;
+    max-width: 500px;
+}
+
+.user-info .user-details .title a {
+    align-items: center;
+}
+
+.user-info .user-details h2,
+.user-info .user-details a {
+    color: var(--text-title);
+}
+
+.user-info .user-details p,
+.user-info .user-details span {
+    color: var(--text-body);
+}
+
+.user-info .user-details span {
+    margin: 0.25rem auto 1.25rem;
+    display: inline-block;
+}
+
+.user-info .following-and-followers {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.read-me-user {
+    width: 100% !important;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    color: var(--text-body);
+    background: var(--card-background);
+}
+
+.repositories-area {
+    margin-top: 1rem;
+}
+
+.repositories-area {
+    margin-top: 1rem;
+}
+
+.repos-total {
+    color: var(--text-title);
+    text-align: center;
+}
+
+.repo-info {
+    width: 100%;
+    height: auto;
+    margin: 0.75rem auto;
+    padding: 1.25rem;
+    color: var(--text-body);
+}
+
+.repo-info .repo-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.repo-info .repo-title {
+    font-size: 1.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.repo-info .repo-details .stars {
+    min-width: 25px;
+}
+
+.repo-info-a {
+    text-decoration: none;
+    color: var(--text-title);
+}
+
+.repo-info {
+    background: var(--card-background);
+    width: 100%;
+    border-radius: 0.75rem;
+}
+
+.repo-info .repo-aditionals {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1.75rem;
+}
+
+.no-repos {
+    background-color: #ff5070;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 0.25rem;
+}
+
+@media screen and (max-width:976px) {
+
+    header h1 {
+        font-size: 1.25rem;
+        color: var(--text-title);
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .repo-info .repo-aditionals {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+}
+
+@media screen and (max-width:768px) {
+
+    .repo-info .repo-title {
+        max-width: 12ch;
+    }
+
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-title);
+}
+
+footer a {
+    color: var(--text-title);
+}
