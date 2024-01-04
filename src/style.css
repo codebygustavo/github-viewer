@@ -185,16 +185,6 @@ header p {
     align-items: center;
 }
 
-.read-me-user {
-    width: 100% !important;
-    min-width: 0;
-    margin: 0 auto;
-    padding: 1rem;
-    border-radius: 0.75rem;
-    color: var(--text-body);
-    background: var(--card-background);
-}
-
 .repositories-area {
     margin-top: 1rem;
 }

@@ -50,8 +50,6 @@ function messageReturn(message: string, type: "await-control" | "error-control" 
             }, 6000);
         }
     }
-
-    return;
 }
 
 async function fetchApi(user: string) {
@@ -59,14 +57,21 @@ async function fetchApi(user: string) {
         messageReturn(`Buscando por ${user}...`, "await-control");
 
         const { response, data } = await fetchItem(`https://api.github.com/users/${user}`);
+        let userFound = true;
 
         await awaitStatus(response, 404, "usuário não encontrado!");
+        if (response.status !== 200) {
+            userFound = false;
+        }
 
         const { response: mdResponse, data: mdData } = await fetchItem(`https://api.github.com/repos/${user}/${user}/readme`);
-
         let decodeMDIn64Base = null;
+        let readmeFound = true;
 
         await awaitStatus(mdResponse, 404, "Erro ao carregar Readme.md do usuário");
+        if (mdResponse.status !== 200) {
+            readmeFound = false;
+        }
 
         if (mdData.status !== 404) {
             if (mdData.content) {
@@ -75,15 +80,23 @@ async function fetchApi(user: string) {
         }
 
         const { response: rResponse, data: rData } = await fetchItem(`https://api.github.com/users/${user}/repos`);
+        let reposFound = true;
 
         await awaitStatus(rResponse, 404, "Erro ao carregar repositórios do usuário!");
+        if (rResponse.status !== 200) {
+            reposFound = false;
+        }
 
-        returnResponse(data, rData, decodeMDIn64Base);
+        if (userFound && readmeFound && reposFound) {
+            messageReturn(`Sucesso!`, "sucess-control");
+            returnResponse(data, rData, decodeMDIn64Base);
+        } else {
+            messageReturn(`Erro ao buscar por ${user}`, "error-control");
+        }
+
     } catch (error: any) {
         messageReturn("Erro interno da requisição da api!", "error-control");
         throw error;
-    } finally {
-        messageReturn(`Sucesso!`, "sucess-control");
     }
 }
 
@@ -121,6 +134,10 @@ function returnResponse(data: User, rData: Repos[], decodeMDIn64Base: string | n
         Ela foi importada através de um CDN e, ao ser processada como arquivo .js, 
         o código funcionará normalmente.
         */
+
+        if (!readMeArea.classList.contains("markdown-body")) {
+            readMeArea.classList.add("markdown-body");
+        }
 
         if (decodeMDIn64Base !== null) {
             readMeArea.innerHTML = `
